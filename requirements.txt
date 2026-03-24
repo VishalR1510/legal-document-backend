@@ -7,5 +7,4 @@ sentence-transformers
 pymupdf
 requests
 python-multipart
-tf-keras
 google-generativeai

@@ -4,6 +4,7 @@ from pathlib import Path
 class Settings(BaseSettings):
     PROJECT_NAME: str = "Legal Document Analysis API"
     GEMINI_API_KEY: str = ""
+    HF_TOKEN: str = ""  # Hugging Face API token
     QDRANT_HOST: str = "localhost"
     QDRANT_PORT: int = 6333
     QDRANT_PATH: str = "local_qdrant_db"

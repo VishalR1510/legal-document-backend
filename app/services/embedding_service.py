@@ -1,8 +1,13 @@
 from sentence_transformers import SentenceTransformer
 from typing import List
+from app.core.config import settings
+import os
 
 class EmbeddingService:
     def __init__(self, model_name: str = "all-MiniLM-L6-v2"):
+        # Set HF token if available
+        if settings.HF_TOKEN:
+            os.environ["HF_TOKEN"] = settings.HF_TOKEN
         self.model = SentenceTransformer(model_name)
     
     def generate_embeddings(self, texts: List[str]) -> List[List[float]]:

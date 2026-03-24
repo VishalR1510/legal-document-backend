@@ -20,6 +20,7 @@ app.add_middleware(
     allow_origins=[
         "http://localhost:3000",
         "http://localhost:5173",
+        "http://localhost:8080",
         "https://legal-document-frontend-gamma.vercel.app",
     ],
     allow_credentials=True,
