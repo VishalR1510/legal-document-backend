@@ -7,6 +7,8 @@ class Settings(BaseSettings):
     QDRANT_HOST: str = "localhost"
     QDRANT_PORT: int = 6333
     QDRANT_PATH: str = "local_qdrant_db"
+    QDRANT_URL: str = ""  # Cloud Qdrant URL
+    QDRANT_API_KEY: str = ""  # Cloud Qdrant API key
 
     class Config:
         env_file = str(Path(__file__).parent.parent.parent / ".env")

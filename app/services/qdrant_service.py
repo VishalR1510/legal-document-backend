@@ -7,7 +7,13 @@ import uuid
 
 class QdrantService:
     def __init__(self):
-        if settings.QDRANT_HOST == "localhost":
+        # Use cloud Qdrant if URL and API key are configured
+        if settings.QDRANT_URL and settings.QDRANT_API_KEY:
+            self.client = QdrantClient(
+                url=settings.QDRANT_URL,
+                api_key=settings.QDRANT_API_KEY
+            )
+        elif settings.QDRANT_HOST == "localhost":
             self.client = QdrantClient(path=settings.QDRANT_PATH)
         else:
             self.client = QdrantClient(host=settings.QDRANT_HOST, port=settings.QDRANT_PORT)
